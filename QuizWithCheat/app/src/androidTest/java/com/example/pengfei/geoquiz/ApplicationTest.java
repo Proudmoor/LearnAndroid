@@ -1,4 +1,4 @@
-package com.example.pengfei.quizwithcheat;
+package com.example.pengfei.geoquiz;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
