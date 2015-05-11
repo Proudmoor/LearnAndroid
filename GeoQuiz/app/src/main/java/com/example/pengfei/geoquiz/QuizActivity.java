@@ -1,6 +1,7 @@
 package com.example.pengfei.geoquiz;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.app.Activity;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 
 
 public class QuizActivity extends Activity {
+    //注册日志类
+    private static final String TAG = "QuizActivity";
     //注册四个按钮和一个文本框
     private Button mTrueButton;
     private Button mFalseButton;
@@ -29,6 +32,7 @@ public class QuizActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate(Bundle) called");
         setContentView(R.layout.activity_quiz);
         //初始化文本框文字
         mQuestionTextview = (TextView)findViewById(R.id.question_text_view);
@@ -72,6 +76,7 @@ public class QuizActivity extends Activity {
             }
         });
     }
+
 //    更新文本框显示的问题
     private void updateQuestion() {
         int question = mQuestionBank[mCurrentIndex].getQuestion();
@@ -82,7 +87,7 @@ public class QuizActivity extends Activity {
     private void checkAnswer(boolean userPressedTrue){
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueQuestion();
 
-        int messageResId = 0;
+        int messageResId;
 
         if(userPressedTrue == answerIsTrue){
             messageResId = R.string.correct_toast;
@@ -101,4 +106,47 @@ public class QuizActivity extends Activity {
         return true;
     }
 
+    @Override
+    public void onStart(){
+        super.onStart();
+        Log.d(TAG, "onStart() called");
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        Log.d(TAG, "onPause() called");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Log.d(TAG, "onResume() called");
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        Log.d(TAG, "onStop() called");
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Log.d(TAG, "onDestroy() called");
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
