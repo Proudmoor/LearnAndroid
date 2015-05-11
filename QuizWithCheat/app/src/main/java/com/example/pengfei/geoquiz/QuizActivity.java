@@ -34,6 +34,15 @@ public class QuizActivity extends Activity {
 //  问题的索引和保存问题索引的值
     private int mCurrentIndex = 0;
     private static final String KEY_INDEX = "index";
+    private boolean mIsCheater;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(data == null){
+            return;
+        }
+        mIsCheater = data.getBooleanExtra(CheatActivity.EXTRA_ANSWER_IS_SHOWN,false);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +121,7 @@ public class QuizActivity extends Activity {
     private void updateQuestion() {
         int question = mQuestionBank[mCurrentIndex].getQuestion();
         mQuestionTextview.setText(question);
+        mIsCheater = false;
     }
 
 //    判断问题对错的方法
@@ -119,11 +129,14 @@ public class QuizActivity extends Activity {
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueQuestion();
 
         int messageResId;
-
-        if(userPressedTrue == answerIsTrue){
-            messageResId = R.string.correct_toast;
-        } else {
-            messageResId = R.string.incorrect_toast;
+        if(mIsCheater){
+            messageResId = R.string.judgment_toast;
+        }else {
+            if (userPressedTrue == answerIsTrue) {
+                messageResId = R.string.correct_toast;
+            } else {
+                messageResId = R.string.incorrect_toast;
+            }
         }
 
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
