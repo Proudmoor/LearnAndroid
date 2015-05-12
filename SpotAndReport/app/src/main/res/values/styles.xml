@@ -1,8 +1,21 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="android:Theme.Holo.Light"/>
         <!-- Customize your theme here. -->
-    </style>
+
+        <style name="flatButton">
+            <item name="android:state_pressed">true
+                <shape>
+                    <!--色值-->
+                    <solid android:color="#e79429" />
+                    <!--圆角-->
+                    <corners android:radius="10dp" />
+                </shape>
+            </item>
+            <!--默认背景-->
+
+
+        </style>
 
 </resources>

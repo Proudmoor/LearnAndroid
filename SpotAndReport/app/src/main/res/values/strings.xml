@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">SpotReport</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="crime_title_hint">Enter a title for the crime</string>
+    <string name="crime_title_hint">写下想记录的事件或问题....</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="crime_title_label">"标题</string>
+    <string name="crime_details_label">细节</string>
+    <string name="crime_solved_label">Solved?</string>
 </resources>
