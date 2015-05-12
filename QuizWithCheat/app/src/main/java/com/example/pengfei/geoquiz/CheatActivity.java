@@ -2,6 +2,7 @@ package com.example.pengfei.geoquiz;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +28,7 @@ public class CheatActivity extends Activity {
 
     private TextView mAnswerTextView;
     private Button mShowAnswer;
+    private TextView mShowAPI;
 
     private void setAnswerShowResult(boolean isAnswerShown){
         Intent data = new Intent();
@@ -39,18 +41,20 @@ public class CheatActivity extends Activity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate() called");
         setContentView(R.layout.activity_cheat);
-
+        //这个方法标记看了答案没
         setAnswerShowResult(false);
-
+        //从QuizActivity 传了的消息，答案是不是对的
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
 
         mAnswerTextView = (TextView)findViewById(R.id.answerTextView);
+
+
 
         mShowAnswer = (Button)findViewById(R.id.showAnswerButton);
         mShowAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mAnswerIsTrue){
+                if (mAnswerIsTrue){   //如果答案是对的，则文本框中显示true
                     mAnswerTextView.setText(R.string.true_button);
                 } else{
                     mAnswerTextView.setText(R.string.false_button);
@@ -58,5 +62,9 @@ public class CheatActivity extends Activity {
                 setAnswerShowResult(true);
             }
         });
+
+        //显示API级别  //        Build.VERSION.SDK_INT是Int 必须转换为string。
+        mShowAPI = (TextView)findViewById(R.id.showAPITextView);
+        mShowAPI.setText("Api Level is " + Build.VERSION.SDK_INT);
     }
 }
