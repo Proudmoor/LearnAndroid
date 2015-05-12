@@ -24,7 +24,7 @@ public class CrimeLab {
     private CrimeLab(Context appContext) {
         mAppContext = appContext;
         mCrimes = new ArrayList<Crime>();
-
+        //初始化100个事件。
         for(int i=0; i < 100; i++){
             Crime c = new Crime();
             c.setTitle("事件 #" +i);
