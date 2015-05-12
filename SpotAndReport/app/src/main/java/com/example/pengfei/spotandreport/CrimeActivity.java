@@ -1,30 +1,30 @@
 package com.example.pengfei.spotandreport;
 
-import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 
 
-public class CrimeActivity extends Activity{
+public class CrimeActivity extends SingleFragmentActivity{
+
+//    @Override  /** 没有抽象类之前 建立具体的Fragment，现在使用抽象类。
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_fragment);
+//        //获取Fragmentmanager 来管理Fragment
+//        FragmentManager fm = getFragmentManager();
+//        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+//
+//        if(fragment == null){
+//            fragment  = new CrimeFragment();
+//            fm.beginTransaction()
+//                    .add(R.id.fragmentContainer, fragment)
+//                    .commit();
+//        }
+//    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crime);
-        //获取Fragmentmanager 来管理Fragment
-        FragmentManager fm = getFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
-
-        if(fragment == null){
-            fragment  = new CrimeFragment();
-            fm.beginTransaction()
-                    .add(R.id.fragmentContainer, fragment)
-                    .commit();
-        }
+    protected Fragment createFragment(){
+        return new CrimeFragment();
     }
 
 //    @Override
