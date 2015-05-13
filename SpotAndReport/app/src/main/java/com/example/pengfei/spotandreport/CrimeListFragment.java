@@ -1,6 +1,7 @@
 package com.example.pengfei.spotandreport;
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -41,6 +42,10 @@ public class CrimeListFragment extends ListFragment {
     public void onListItemClick(ListView l, View v, int positon, long id){
         Crime c = (Crime) (getListAdapter()).getItem(positon);
         Log.i(TAG, c.getTitle() + "was Clicked"); //用来在logcat中显示 点击 事件触发。
+//        从CrimeListFragment 启动Activitiy，并传递信息
+        Intent i = new Intent(getActivity(), CrimeActivity.class);
+        i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getId());
+        startActivity(i);
     }
 
     private class CrimeAdapter extends ArrayAdapter<Crime> {
