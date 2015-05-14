@@ -1,6 +1,5 @@
 package com.example.pengfei.spotandreport;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,7 +10,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-
 import android.text.format.DateFormat;
 
 import java.util.UUID;
@@ -19,7 +17,7 @@ import java.util.UUID;
 /**
  * Created by pengfei on 15-5-12.
  */
-public class CrimeFragment extends Fragment {
+public class CrimeFragment extends android.support.v4.app.Fragment {
 
     public static final String EXTRA_CRIME_ID =
             "com.example.pengfeng.spotandreport.crime_id";

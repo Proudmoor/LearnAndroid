@@ -1,7 +1,7 @@
 package com.example.pengfei.spotandreport;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
+
+import android.support.v4.app.Fragment;
 
 /**
  * Created by pengfei on 15-5-12.
