@@ -38,6 +38,12 @@ public class CrimeListFragment extends ListFragment {
 
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
+    }
+
     @Override//重写原来
     public void onListItemClick(ListView l, View v, int positon, long id){
         Crime c = (Crime) (getListAdapter()).getItem(positon);
@@ -77,7 +83,7 @@ public class CrimeListFragment extends ListFragment {
 
             return convertView;
         }
-
-
     }
+
+
 }

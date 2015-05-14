@@ -3,6 +3,8 @@ package com.example.pengfei.spotandreport;
 import android.app.Fragment;
 import android.view.MenuItem;
 
+import java.util.UUID;
+
 
 public class CrimeActivity extends SingleFragmentActivity{
 
@@ -24,7 +26,11 @@ public class CrimeActivity extends SingleFragmentActivity{
 
     @Override
     protected Fragment createFragment(){
-        return new CrimeFragment();
+        UUID crimeId = (UUID) getIntent()
+                .getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);
+//        return new CrimeFragment();  原来通用的从Activity创建Fragment的返回
+        //现在创建...
+        return CrimeFragment.newInstance(crimeId);
     }
 
 //    @Override
