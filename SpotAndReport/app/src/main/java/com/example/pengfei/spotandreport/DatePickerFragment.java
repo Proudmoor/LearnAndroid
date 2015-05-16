@@ -2,6 +2,7 @@ package com.example.pengfei.spotandreport;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
@@ -58,5 +59,16 @@ public class DatePickerFragment extends DialogFragment{
         fragment.setArguments(args);
 
         return fragment;
+    }
+
+    private void sendResult(int resultCode){
+        if(getTargetFragment() == null)
+            return;
+
+        Intent i = new Intent();
+        i.putExtra(EXTRA_DATE, mDate);
+
+        getTargetFragment()
+                .onActivityResult(getTargetRequestCode(), resultCode, i);
     }
 }
