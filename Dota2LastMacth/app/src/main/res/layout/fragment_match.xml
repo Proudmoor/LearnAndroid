@@ -39,7 +39,8 @@
             android:layout_height="wrap_content"
             android:text="英雄"
             android:layout_weight="1"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:gravity="center"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,20 +48,29 @@
             android:layout_weight="6"
             android:textAlignment="center"
             android:autoText="false"
-            android:paddingLeft="10dp"/>
+            android:gravity="center"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="物品"
             android:layout_weight="1"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="头像"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:gravity="center"/>
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/match_summary_label"
+        style="?android:listSeparatorTextViewStyle"
+        />
 
 </LinearLayout>

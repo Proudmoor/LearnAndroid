@@ -7,4 +7,6 @@
     <string name="match_details_label">比赛详情</string>
     <string name="match_title_label">重命名</string>
     <string name="match_title_hint">你有什么想说的。。。</string>
+    <string name="title_activity_match_list">详细</string>
+    <string name="match_summary_label">其他信息</string>
 </resources>
