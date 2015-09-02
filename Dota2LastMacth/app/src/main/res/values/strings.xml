@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Dota2LastMacth</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Dota2Macth</string>
     <string name="action_settings">Settings</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="match_details_label">比赛详情</string>
+    <string name="match_title_label">重命名</string>
+    <string name="match_title_hint">你有什么想说的。。。</string>
 </resources>

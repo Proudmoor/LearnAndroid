@@ -1,6 +1,7 @@
 package com.zpf416.dota2lastmacth;
 
 import java.util.Date;
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -31,8 +32,8 @@ public class Match {
         mDuration = duration;
     }
 
-    public void setGameMode(String gameMode) {
-        mGameMode = gameMode;
+    public void setHeroPlayed(String heroPlayed) {
+        mHeroPlayed = heroPlayed;
     }
 
     public void setFirstBloodTime(String firstBloodTime) {
@@ -53,8 +54,8 @@ public class Match {
         return mDuration;
     }
 
-    public String getGameMode() {
-        return mGameMode;
+    public String getHeroPlayed() {
+        return mHeroPlayed;
     }
 
     public String getFirstBloodTime() {
@@ -68,7 +69,7 @@ public class Match {
     private String mMatchId;
     private String mWinner;
     private String mDuration;
-    private String mGameMode;
+    private String mHeroPlayed;
     private String mFirstBloodTime;
     public UUID getId() {
         return mId;
@@ -86,5 +87,17 @@ public class Match {
 
     public Match(){
         mId = UUID.randomUUID();
+        mDate = new Date();
+        //Just for test
+        Random rd = new Random();
+        mMatchId = rd.nextInt(1000000000)+"";
+        mWinner = (rd.nextInt(100) % 2 ==  0 ? "天辉" : "夜魇");
+        mHeroPlayed = rd.nextInt(110) + "";
+
+    }
+
+    @Override
+    public String toString(){
+        return mTitle;
     }
 }

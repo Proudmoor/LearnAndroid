@@ -14,12 +14,9 @@ import android.widget.EditText;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MatchActivityFragment extends Fragment {
+public class MatchFragment extends Fragment {
     private Match mMatch;
     private EditText mTitleField;
-
-    public MatchActivityFragment() {
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -31,23 +28,9 @@ public class MatchActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_match, container, false);
-        mTitleField = (EditText) v.findViewById((R.id.match_title));
-        mTitleField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mMatch.setTitle(s.toString());
-            }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         return v;
     }
 }
