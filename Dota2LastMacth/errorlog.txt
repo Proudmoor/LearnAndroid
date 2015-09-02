@@ -1,0 +1,23 @@
+base operand of '->' has non-pointer type 'JNIEnv {aka _JNIEnv}'
+
+JNI WARNING: input is not valid Modified UTF-8: illegal continuation byte 0x70.
+http://stackoverflow.com/questions/12127817/android-ics-4-0-ndk-newstringutf-is-crashing-down-the-app
+
+https://code.google.com/p/android/issues/detail?id=25386
+
+These NDK functions do not convert supplementary Unicode characters (i.e., Unicode characters with a value of U+10000 and above) correctly. This leads to incorrect UTF-8 and subsequent crashes.
+
+
+dota 2 //  id 66313228
+
+https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/?key=809DF5B077AC15B512C4ECFA836470B0&match_id=1761229586
+// heros
+https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key=809DF5B077AC15B512C4ECFA836470B0&language=zh
+http://cdn.dota2.com/apps/dota2/images/heroes/npc_dota_hero_drow_ranger_vert.png  //eb.png sb.png lg.png full.png vert.png
+// Steam Profile
+http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=809DF5B077AC15B512C4ECFA836470B0&steamids=76561198098649471
+//Match HIstory
+https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/?key=809DF5B077AC15B512C4ECFA836470B0&account_id=76561198098649471
+//Item
+https://api.steampowered.com/IEconDOTA2_570/GetGameItems/V001/?key=<key>&language=<lang (i.e. en)>
+
