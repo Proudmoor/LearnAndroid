@@ -10,7 +10,13 @@ import javax.microedition.khronos.opengles.GL10;
  * Created by pengfei on 15-6-20.
  */
 public class MyGLRenderer implements GLSurfaceView.Renderer{
+
+    private Triangle mTriangle;
+    private Square   mSquare;
+
     public void onSurfaceCreated(GL10 unused, EGLConfig config){
+        mTriangle = new Triangle();
+        mSquare = new Square();
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     }
 
