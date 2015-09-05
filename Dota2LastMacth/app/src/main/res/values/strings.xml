@@ -9,4 +9,7 @@
     <string name="match_title_hint">你有什么想说的。。。</string>
     <string name="title_activity_match_list">详细</string>
     <string name="match_summary_label">其他信息</string>
+    <string name="title_activity_match_pager">MatchPagerActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

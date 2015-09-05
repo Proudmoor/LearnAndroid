@@ -1,6 +1,7 @@
 package com.zpf416.dota2lastmacth;
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,13 +12,14 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
 public class MatchListFragment extends ListFragment{
     private ArrayList<Match> mMatches;
     private static final String TAG = "MatchListFragment";
-
+    static SimpleDateFormat df = new SimpleDateFormat("yy/MM/dd，HH:mm");
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -35,7 +37,12 @@ public class MatchListFragment extends ListFragment{
     @Override
     public void onListItemClick(ListView l, View v, int position, long id){
         Match m = ((MatchAdapter)getListAdapter()).getItem(position);
-        Log.d(TAG, m.getTitle() + "was clicked");
+        Log.i(TAG, m.getTitle() + "was clicked");
+        //Changed to use PagerAdapter
+//        Intent i = new Intent(getActivity(), MatchActivity.class);
+        Intent i = new Intent(getActivity(), MatchPagerActivity.class);
+        i.putExtra(MatchFragment.EXTRA_MATCH_ID, m.getId());
+        startActivity(i);
     }
 
     private class MatchAdapter extends ArrayAdapter<Match>{
@@ -55,16 +62,22 @@ public class MatchListFragment extends ListFragment{
             TextView idTextView = (TextView) convertView.findViewById(R.id.match_id);
             idTextView.setText(m.getMatchId());
             TextView dateTextView = (TextView) convertView.findViewById(R.id.match_date);
-            dateTextView.setText(m.getDate().toString());
+            dateTextView.setText(df.format(m.getDate()));
             TextView timeTextView = (TextView) convertView.findViewById(R.id.match_time);
             timeTextView.setText(m.getDuration());
-            TextView heroTextView = (TextView) convertView.findViewById(R.id.match_played_hero);
-            heroTextView.setText(m.getHeroPlayed());
+//            TextView heroTextView = (TextView) convertView.findViewById(R.id.match_played_hero);
+//            heroTextView.setText(m.getHeroPlayed());
             TextView winTextView = (TextView) convertView.findViewById(R.id.match_winner);
             winTextView.setText(m.getWinner());
 
 
             return convertView;
         }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        ((MatchAdapter)getListAdapter()).notifyDataSetChanged();
     }
 }
