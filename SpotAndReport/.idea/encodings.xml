@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/../NDK_setup/app/build/intermediates/ndk/debug/lib/arm64-v8a/libch02.so" charset="US-ASCII" />
-  </component>
-</project>
+<project version="4" />
