@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
 
 import java.util.UUID;
 
@@ -46,24 +49,28 @@ public class MatchFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_match, container, false);
 
-        mTitleField = (EditText) v.findViewById(R.id.change_title);
-        //mTitleField.setText("这场比赛 "+mMatch.getWinner()+" 胜利了");
-        mTitleField.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//        mTitleField = (EditText) v.findViewById(R.id.change_title);
+//        //mTitleField.setText("这场比赛 "+mMatch.getWinner()+" 胜利了");
+//        mTitleField.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                mMatch.setTitle(s.toString());
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                mMatch.getTitle();
+//            }
+//        });
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mMatch.setTitle(s.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                mMatch.getTitle();
-            }
-        });
+        ListView  list = (ListView) v.findViewById(R.id.detail_listview);
+        TextView  emptyText = (TextView) v.findViewById(R.id.firstbloodTime);
+        list.setEmptyView(emptyText);
 
         return v;
     }

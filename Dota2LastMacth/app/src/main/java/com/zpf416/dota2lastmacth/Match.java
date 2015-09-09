@@ -1,94 +1,56 @@
 package com.zpf416.dota2lastmacth;
 
+import android.util.Log;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 import java.util.UUID;
 
 /**
  * Created by zpff on 2015/9/2.
  */
 public class Match {
-    private static final String JSON_PHOTO = "photo";
-
-    private String mTitle;
-    private UUID mId;
-
-    public Photo getPhoto() {
-        return mPhoto;
+    static SimpleDateFormat df = new SimpleDateFormat("yy/MM/dd，HH:mm");
+    private static final String TAG = "MATCH";
+    public Match(){
+        mId = UUID.randomUUID();
+//        try{
+//            for(int i = 0; i < mPlayers.length(); i++){
+//                JSONObject player = mPlayers.getJSONObject(i);
+//                if(player.getLong("account_id") == 138383743)
+//                    mHeroPlayed = player.getInt("hero_id");
+//            }
+//        }catch (JSONException jse){
+//            Log.e(TAG, "Get Players failed.", jse);
+//        }
     }
-
-    public void setPhoto(Photo photo) {
-        mPhoto = photo;
-    }
-
-    private Photo mPhoto;
-
-    public void setId(UUID id) {
-        mId = id;
-    }
-
-    public void setDate(Date date) {
-        mDate = date;
-    }
-
-    public void setMatchId(String matchId) {
-        mMatchId = matchId;
-    }
-
-    public void setWinner(String winner) {
-        mWinner = winner;
-    }
-
-    public void setDuration(String duration) {
-        mDuration = duration;
-    }
-
-    public void setHeroPlayed(String heroPlayed) {
-        mHeroPlayed = heroPlayed;
-    }
-
-    public void setFirstBloodTime(String firstBloodTime) {
-        mFirstBloodTime = firstBloodTime;
-    }
-
-    private Date mDate;
-
-    public String getMatchId() {
+    public Long getMatchId() {
         return mMatchId;
     }
 
-    public String getWinner() {
-        return mWinner;
+    public void setMatchId(Long matchId) {
+        mMatchId = matchId;
     }
 
-    public String getDuration() {
-        return mDuration;
+    public Long getMatchDate() {
+        return mMatchDate;
     }
 
-    public String getHeroPlayed() {
-        return mHeroPlayed;
+    public void setMatchDate(Long matchDate) {
+        mMatchDate = matchDate;
     }
 
-    public String getFirstBloodTime() {
-        return mFirstBloodTime;
-    }
-
-    public Date getDate() {
-        return mDate;
-    }
-
-    private String mMatchId;
-    private String mWinner;
-    private String mDuration;
-    private String mHeroPlayed;
-    private String mFirstBloodTime;
     public UUID getId() {
         return mId;
+    }
+
+    public void setId(UUID id) {
+        mId = id;
     }
 
     public String getTitle() {
@@ -99,32 +61,36 @@ public class Match {
         mTitle = title;
     }
 
-
-    SimpleDateFormat df = new SimpleDateFormat("yy年,MM月dd日，HH:mm");
-    Dateutil du = new Dateutil();
-    public Match() throws JSONException{
-        mId = UUID.randomUUID();
-        mDate = Dateutil.randomDate("2015-1-1", "2015-9-1");
-        //Just for test
-        Random rd = new Random();
-        mMatchId = rd.nextInt(1000000000)+"";
-        mWinner = (rd.nextInt(100) % 2 ==  0 ? "天辉" : "夜魇");
-        mHeroPlayed = rd.nextInt(110) + "";
-//        if(json.has(JSON_PHOTO))
-//            mPhoto = new Photo(json.getJSONObject(JSON_PHOTO));
-
+    public JSONArray getPlayers() {
+        return mPlayers;
     }
 
-    public JSONObject toJSON() throws JSONException{
-        JSONObject json = new JSONObject();
-
-        json.put(JSON_PHOTO, mPhoto.toJSON());
-        return json;
+    public void setPlayers(JSONArray players) {
+        mPlayers = players;
     }
+
+    private Long mMatchId;
+    private Long mMatchDate;
+    private UUID mId;
+    private String mTitle;
+    private JSONArray mPlayers;
+
+    public int getHeroPlayed() {
+        return mHeroPlayed;
+    }
+
+    public void setHeroPlayed(int heroPlayed) {
+        mHeroPlayed = heroPlayed;
+    }
+
+    private int    mHeroPlayed;
+
+
 
     @Override
     public String toString(){
-        return mTitle;
+        Date d = new Date(mMatchDate*1000);
+        return mMatchId.toString() +"played at:" + df.format(d).toString();
     }
 
     /**
@@ -132,6 +98,7 @@ public class Match {
      */
 
     //Generate random date
+    //
     static class Dateutil{
         public static Date randomDate(String beginDate, String endDate){
             try{

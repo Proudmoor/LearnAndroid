@@ -14,26 +14,6 @@ public class MatchPool {
     private MatchPool(Context appContext){
         mAppContext = appContext;
         mMatches = new ArrayList<>();
-
-        //Just for Test
-        Match.Dateutil dt = new Match.Dateutil();
-        for(int i = 0; i < 100; i++){
-            try {
-                Match m = new Match();
-                m.setTitle("比赛时间 ：" + dt.randomDate("2015-1-1", "2015-9-1"));
-                m.setDate(dt.randomDate("2015-1-1", "2015-9-1"));
-//            m.setDuration();
-//            m.setFirstBloodTime();
-//            m.setFirstBloodTime();
-//            m.setMatchId();
-//            m.setWinner();
-//            m.setHeroPlayed();
-                mMatches.add(m);
-            } catch(Exception e){
-                e.printStackTrace();
-            }
-
-        }
     }
 
     public static MatchPool get(Context c){
@@ -41,6 +21,9 @@ public class MatchPool {
             sMatchPool = new MatchPool(c.getApplicationContext());
         }
         return sMatchPool;
+    }
+    public void addMatch(Match m){
+        mMatches.add(m);
     }
 
     public ArrayList<Match> getMatches(){

@@ -5,11 +5,21 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="match_details_label">比赛详情</string>
-    <string name="match_title_label">重命名</string>
-    <string name="match_title_hint">你有什么想说的。。。</string>
     <string name="title_activity_match_list">详细</string>
     <string name="match_summary_label">其他信息</string>
     <string name="title_activity_match_pager">MatchPagerActivity</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="human_players">机器人数量：</string>
+    <string name="game_mod">比赛类型：</string>
+    <string name="firstblood_time">一血时间：</string>
+    <string name="avtar">头像</string>
+    <string name="item">物品</string>
+    <string name="kda">战绩</string>
+    <string name="heroplayed">英雄</string>
+    <string name="match_id">matchID</string>
+    <string name="match_id_title">比赛ID</string>
+    <string name="nickname">米兰的小科比</string>
+    <string name="kda1">5/5/8</string>
+    <string name="firstbloodtime">一血时间：</string>
 </resources>
