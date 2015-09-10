@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hero_id_image"
+        android:layout_alignParentRight="true"
+        android:padding = "4dp"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/time_layout"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/match_date"
+            android:layout_toLeftOf="@id/hero_id_image"
+            android:text="15/09/04 23:22"
+            android:layout_gravity="top|center"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/match_last_time"
+                android:layout_below="@id/match_date"
+                android:layout_toLeftOf="@id/hero_id_image"
+                android:text="50:00"
+                android:layout_gravity="bottom|center_horizontal"/>
+    </LinearLayout>
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/match_id"
+        android:layout_toLeftOf="@id/time_layout"
+        android:text="123456789"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="false"
+        android:paddingTop="10dp"/>
+
+</RelativeLayout>

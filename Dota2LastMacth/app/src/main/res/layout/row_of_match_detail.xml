@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/player_avatar"
+        android:text="123456789"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:cropToPadding="false"
+        android:src="@drawable/avatar"/>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/player_avatar"
+        android:layout_toStartOf="@+id/player_avatar"
+        android:columnCount="3"
+        android:rowCount="2"
+        android:id="@+id/gridLayout"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="4dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/blink"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageView2"
+            android:src="@drawable/blink"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageView3"
+            android:src="@drawable/blink"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageView4"
+            android:src="@drawable/blink"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageView5"
+            android:src="@drawable/blink"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/imageView6"
+            android:src="@drawable/blink"
+            android:scaleType="fitXY"/>
+    </GridLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10/10/10"
+        android:id="@+id/kda"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/gridLayout"
+        android:layout_toStartOf="@+id/gridLayout"
+        android:layout_marginRight="4dp"/>
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:id="@+id/detail_hero_image"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/hero"
+        android:scaleType="fitXY"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="米兰的小科比"
+        android:id="@+id/player_nickname"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/detail_hero_image"
+        android:layout_toEndOf="@+id/detail_hero_image"
+        android:textSize="12dp"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="参战率：50%"
+        android:id="@+id/battle_percent"
+        android:layout_below="@+id/player_nickname"
+        android:layout_toRightOf="@+id/detail_hero_image"
+        android:layout_toEndOf="@+id/detail_hero_image"
+        android:textSize="10dp"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="伤害：50%"
+        android:id="@+id/damage_percent"
+        android:layout_below="@+id/battle_percent"
+        android:layout_toRightOf="@+id/detail_hero_image"
+        android:layout_toEndOf="@+id/detail_hero_image"
+        android:textSize="10dp"
+        android:layout_marginTop="4dp"/>
+
+</RelativeLayout>

@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
@@ -19,16 +20,24 @@ public class Match {
     private static final String TAG = "MATCH";
     public Match(){
         mId = UUID.randomUUID();
-//        try{
-//            for(int i = 0; i < mPlayers.length(); i++){
-//                JSONObject player = mPlayers.getJSONObject(i);
-//                if(player.getLong("account_id") == 138383743)
-//                    mHeroPlayed = player.getInt("hero_id");
-//            }
-//        }catch (JSONException jse){
-//            Log.e(TAG, "Get Players failed.", jse);
-//        }
     }
+
+    private ArrayList<String> mPlayer;
+    public int getHeroPlayed() {
+        try{
+            for(int i = 0; i < mPlayers.length(); i++){
+                JSONObject player = mPlayers.getJSONObject(i);
+                if(player.getLong("account_id") == 138383743) {
+                    mHeroPlayed = player.getInt("hero_id");
+                    break;
+                }
+            }
+        }catch (JSONException jse){
+            Log.e(TAG, "Get Player failed.", jse);
+        }
+        return mHeroPlayed;
+    }
+
     public Long getMatchId() {
         return mMatchId;
     }
@@ -38,7 +47,7 @@ public class Match {
     }
 
     public Long getMatchDate() {
-        return mMatchDate;
+        return mMatchDate * 1000;
     }
 
     public void setMatchDate(Long matchDate) {
@@ -54,6 +63,9 @@ public class Match {
     }
 
     public String getTitle() {
+        if(mTitle == null){
+            mTitle = mMatchId.toString();
+        }
         return mTitle;
     }
 
@@ -75,9 +87,6 @@ public class Match {
     private String mTitle;
     private JSONArray mPlayers;
 
-    public int getHeroPlayed() {
-        return mHeroPlayed;
-    }
 
     public void setHeroPlayed(int heroPlayed) {
         mHeroPlayed = heroPlayed;

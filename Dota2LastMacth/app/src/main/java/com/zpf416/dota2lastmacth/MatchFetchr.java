@@ -23,6 +23,7 @@ public class MatchFetchr {
     public static final String TAG = "MatchFetch";
     public static final String ENDPOINT = "https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/V001/";
     public static final String API_KEY = "809DF5B077AC15B512C4ECFA836470B0";
+    public static final String ENDPOINT_DT = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/";
 
 
     byte[] getUrlBytes(String urlSpec) throws IOException{
@@ -79,6 +80,7 @@ public class MatchFetchr {
                 JSONObject jo = matchArray.getJSONObject(i);
                 m.setMatchId(jo.getLong("match_id"));
                 m.setMatchDate(jo.getLong("start_time"));
+                m.setPlayers(jo.getJSONArray("players"));
                 matches.add(m);
                 Log.i(TAG, jo.getString("start_time"));
             }
@@ -87,4 +89,29 @@ public class MatchFetchr {
             Log.e(TAG, "Parse History from JsonString failed", jse);
         }
     }
+
+//    public ArrayList<Player> fetchMatchDetail(String matchID){
+//        JSONArray playersJSON = null;
+//        try{
+//            String url = Uri.parse(ENDPOINT_DT).buildUpon()
+//                    .appendQueryParameter("key", API_KEY)
+//                    .appendQueryParameter("match_id", matchID)
+//                    .build().toString();
+//            String jsonString = getUrl(url);
+//            Log.i(TAG, "Received json: "+ jsonString);
+//            parseMatchDetail(playersJSON,jsonString );
+//        } catch(IOException ioe){
+//            Log.e(TAG, "Parse Match Deatail from jsonString failed",ioe );
+//        }
+//
+//        return playersJSON;
+//    }
+//
+//    void parseMatchDetail(JSONArray players,String jsonString){
+//        try{
+//            JSONObject result = (new JSONObject(jsonString)).getJSONObject("result");
+//        }
+//    }
+
+
 }
