@@ -4,6 +4,7 @@ package com.zpf416.dota2lastmacth;
 import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -122,17 +123,19 @@ public class MatchFragment extends Fragment {
             return convertView;
         }
     }
+
+//    private class FetchDetailTask extends AsyncTask<String, Void, JSONArray> {
+//        @Override
+//        protected JSONArray doInBackground(String... params){
+//            return new MatchFetchr().parseDetail(params);
+//        }
+//
+//        @Override
+//        protected void onPostExecute(JSONArray players){
+//            mPlayers = players;
+//
+//        }
+//    }en
 }
 
-//private class FetchDetailTask extends AsyncTask<String, Void, JSONArray>{
-//    @Override
-//    protected JSONArray doInBackground(String... params){
-//        return new MatchFetchr().parseDetail(params);
-//    }
-//
-//    @Override
-//    protected void onPostExecute(JSONArray players){
-//        mPlayers = players;
-//
-//    }
-//}
+

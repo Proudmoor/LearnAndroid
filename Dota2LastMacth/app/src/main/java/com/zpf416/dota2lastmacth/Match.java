@@ -1,9 +1,6 @@
 package com.zpf416.dota2lastmacth;
 
-import android.util.Log;
-
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.ParseException;
@@ -23,20 +20,7 @@ public class Match {
     }
 
     private ArrayList<String> mPlayer;
-    public int getHeroPlayed() {
-        try{
-            for(int i = 0; i < mPlayers.length(); i++){
-                JSONObject player = mPlayers.getJSONObject(i);
-                if(player.getLong("account_id") == 138383743) {
-                    mHeroPlayed = player.getInt("hero_id");
-                    break;
-                }
-            }
-        }catch (JSONException jse){
-            Log.e(TAG, "Get Player failed.", jse);
-        }
-        return mHeroPlayed;
-    }
+
 
     public Long getMatchId() {
         return mMatchId;
@@ -88,11 +72,15 @@ public class Match {
     private JSONArray mPlayers;
 
 
-    public void setHeroPlayed(int heroPlayed) {
-        mHeroPlayed = heroPlayed;
+    public JSONObject getMatchDetail() {
+        return mMatchDetail;
     }
 
-    private int    mHeroPlayed;
+    public void setMatchDetail(JSONObject matchDetail) {
+        mMatchDetail = matchDetail;
+    }
+
+    private JSONObject mMatchDetail;
 
 
 
